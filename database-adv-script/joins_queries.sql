@@ -10,7 +10,7 @@ SELECT
     *
 FROM
     property p
-LEFT JOIN review r ON p.property_id = r.property_id;
+LEFT JOIN review r ON p.property_id = r.property_id ORDER BY review ASC;
 
 -- Q3 (FULL OUTER JOIN simulation)
 SELECT
