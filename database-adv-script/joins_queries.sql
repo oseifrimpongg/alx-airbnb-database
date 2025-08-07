@@ -1,30 +1,34 @@
 -- Q1
-select
-   *
-from
-   booking
-   inner join user on booking.user_id = user.user_id;
+SELECT
+    *
+FROM
+    booking
+INNER JOIN user ON booking.user_id = user.user_id;
 
 -- Q2
-select
-   *
-from
-   property p
-   left join review r on p.property_id = r.property_id
-select
-   u.user_id,
-   u.first_name,
-   b.booking_id as booking_id,
-   b.start_date
-from
-   user u
-   left join booking b on u.user_id = b.user_id
-union
-select
-   u.user_id,
-   u.first_name,
-   b.booking_id as booking_id,
-   b.start_date
-from
-   booking b
-   left join user u on b.user_id = u.user_id;
+SELECT
+    *
+FROM
+    property p
+LEFT JOIN review r ON p.property_id = r.property_id;
+
+-- Q3 (FULL OUTER JOIN simulation)
+SELECT
+    u.user_id,
+    u.first_name,
+    b.booking_id AS booking_id,
+    b.start_date
+FROM
+    user u
+LEFT JOIN booking b ON u.user_id = b.user_id
+
+UNION
+
+SELECT
+    u.user_id,
+    u.first_name,
+    b.booking_id AS booking_id,
+    b.start_date
+FROM
+    booking b
+LEFT JOIN user u ON b.user_id = u.user_id;
